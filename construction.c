@@ -1,21 +1,27 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
-struct num_pages { char[] title; int pages;};
+struct book { int pages; char title[25];};
+struct book pick();
 
-struct num_pages[5] examples;
-examples[0] = { "To Kill a Mockingbird"; 281;};
-examples[1] = { "Catcher in the Rye"; 277;};
-examples[2] = { "Harry Potter Series"; 4224;};
-examples[3] = { "The Great Gatsby"; 180;};
-examples[4] = { "The Bible"; 1200;};
+int main() {
+  struct book examples[5];
+  (examples[0]).pages = 281;
+  strcpy( examples[0].title, "To Kill a Mockingbird");
+  (examples[1]).pages = 277;
+  strcpy( examples[1].title, "The Catcher in the Rye");
+  /* examples[2] = { 4224; "Harry Potter Series";}; */
+  /* examples[3] = { 180; "The Great Gatsby";}; */
+  /* examples[4] = { 1200; "The Bible";}; */
+  pick();
+}
 
-
-struct num_pages pick() {
+struct book pick() {
   srand( time(NULL) );
-  struct num_pages* pointer = examples;
+  struct book* pointer = examples;
   pointer += rand % 5;
-  struct num_pages s 
-  printf( "Title/Page Number: %s: %d\n", 
-  
+  struct book s = pointer;
+  printf( "Title/Page Number: %s: %d\n", s.title, s.pages);
+}
